@@ -5,6 +5,10 @@
 
 ### Features
 
+- add model training functionality in train.py with dataset splitting and session management ([c51edbb](https://github.com///commit/c51edbb2a50aaef04ac8c248cf5943fbce80416a))
+- implement data preparation functionality for Iris dataset in preparation.py ([2af8cf6](https://github.com///commit/2af8cf6bacf3153be0d9a7f328b3c81dc049f3f2))
+- enable Model Training page in layout and update sidebar navigation ([87be0a9](https://github.com///commit/87be0a9ec87a513bcedf1168ff908dc1ba62ca41))
+- add CHANGELOG.md for version 0.1.0 with initial features and updates ([71790c7](https://github.com///commit/71790c7b12ff4bcbb439c951679bff22ffd6c4b9))
 - add requirements.txt for project dependencies ([ca94f6c](https://github.com///commit/ca94f6c87788aec4d1665c01f2b0480021313bd5))
 - add Chinese README.md for application introduction, data description, and usage instructions ([81cbe3b](https://github.com///commit/81cbe3b2a617107aa3153835f459b51fcd011627))
 - add README.md for application introduction, data description, and usage instructions ([836f85c](https://github.com///commit/836f85cb3682ac833a22ca9a5030cf38334609f4))
@@ -17,4 +21,8 @@
 - add about.py for application information display ([230b50f](https://github.com///commit/230b50f28574bfac003bdde9a03da3200cf1ebbf))
 - add __init__.py with main function template ([12e1d4d](https://github.com///commit/12e1d4db01d190c6bad3b8f46eb5d25f8e040297))
 - add .gitignore to exclude IDE and environment files ([b5620f5](https://github.com///commit/b5620f50f7a04c8eee12caad0e0eb99c966a3bca))
+
+### Bug Fixes
+
+- update git-changelog version to 2.6.2 in requirements.txt ([e67ef11](https://github.com///commit/e67ef1125b608e83e75dbe5fc505982fec338055))
 
