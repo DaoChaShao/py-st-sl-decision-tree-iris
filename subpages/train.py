@@ -25,12 +25,12 @@ empty_train_table: empty = empty()
 empty_test_title: empty = empty()
 empty_test_table: empty = empty()
 
-all_sessions: list[str] = ["iris", "data", "X", "Y"]
-for all_session in all_sessions:
-    session_state.setdefault(all_session, None)
-page_sessions: list[str] = ["x_train", "x_test", "y_train", "y_test", "timer_split", "model", "timer_train", "best"]
-for page_session in page_sessions:
-    session_state.setdefault(page_session, None)
+home_sessions: list[str] = ["iris", "data", "X", "Y"]
+for home_session in home_sessions:
+    session_state.setdefault(home_session, None)
+train_sessions: list[str] = ["x_train", "x_test", "y_train", "y_test", "timer_split", "model", "timer_train", "best"]
+for train_session in train_sessions:
+    session_state.setdefault(train_session, None)
 
 with (sidebar):
     if session_state["data"] is None:
@@ -177,6 +177,6 @@ with (sidebar):
                     ))
 
             if button("Clear the Dataset", type="secondary", width="stretch"):
-                for key in page_sessions:
+                for key in train_sessions:
                     session_state[key] = None
                 rerun()
