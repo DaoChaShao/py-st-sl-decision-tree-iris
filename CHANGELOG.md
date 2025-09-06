@@ -5,6 +5,9 @@
 
 ### Features
 
+- update chart handling in test.py to improve visualisation titles and structure ([08e633b](https://github.com///commit/08e633bf354c39a9df21027b3415e5b74707c587))
+- add feature importance visualisation and integrate scatter plot in model testing ([26bd59f](https://github.com///commit/26bd59f2ce87e1ad2d6330396b391ccc89ad40ed))
+- enhance scatter visualisation function to support variable dimensions and improve parameter naming ([dd6819f](https://github.com///commit/dd6819fa5e2f8af3d65920530409a2ff0a28d67d))
 - add model testing functionality with session state management in test.py ([10139aa](https://github.com///commit/10139aadb740d1b1befae543e336670fc77ae3c1))
 - add model testing page to navigation in layout.py ([f0eca94](https://github.com///commit/f0eca942df2b809c2d28fb3585e67882dcba086e))
 - enhance model training in train.py with decision tree visualization and accuracy metrics ([4ef27a6](https://github.com///commit/4ef27a662e7548ab4f66a0a0e48f0862265db695))
@@ -34,6 +37,7 @@
 
 ### Chore
 
+- update CHANGELOG.md to include recent feature additions and code refactoring ([3bd25ef](https://github.com///commit/3bd25ef06d965b4e98c7018ac6d654a4652072c6))
 - update CHANGELOG.md to reflect recent code refactoring and feature additions ([3f7cca0](https://github.com///commit/3f7cca0f2ce7c641c5d214ece114da674d90fd68))
 - update CHANGELOG.md to include recent feature additions and improvements ([4315bd5](https://github.com///commit/4315bd572843059ee2de493c8eb34367aa8dfc44))
 - update CHANGELOG.md with recent features and bug fixes ([a55d2eb](https://github.com///commit/a55d2eb97276b54274be56e4e15bdbdd4e3ec100))
