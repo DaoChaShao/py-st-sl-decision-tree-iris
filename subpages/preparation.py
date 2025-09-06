@@ -20,7 +20,7 @@ empty_x_table: empty = empty()
 empty_all_title: empty = empty()
 empty_all_table: empty = empty()
 
-all_sessions: list[str] = ["data", "timer_pre", "X", "Y"]
+all_sessions: list[str] = ["iris", "data", "timer_pre", "X", "Y"]
 for all_session in all_sessions:
     session_state.setdefault(all_session, None)
 
@@ -29,13 +29,13 @@ with sidebar:
         empty_messages.error("Please upload a dataset in the Home page.")
         subheader("Data Preparation")
 
-        if button("Load the Dataset of Iris", type="primary", width="stretch"):
+        if button("Load the Dataset of IRIS", type="primary", width="stretch"):
             with Timer("Loading the Iris dataset") as t:
-                iris = load_iris()
-                features = iris.data
-                labels = iris.target
+                session_state["iris"] = load_iris()
+                features = session_state["iris"].data
+                labels = session_state["iris"].target
 
-                session_state["X"]: DataFrame = DataFrame(features, columns=iris.feature_names)
+                session_state["X"]: DataFrame = DataFrame(features, columns=session_state["iris"].feature_names)
                 session_state["Y"]: DataFrame = DataFrame(labels, columns=["target"])
                 session_state["data"] = concat([session_state.X, session_state.Y], axis=1)
             session_state["timer_pre"] = t
@@ -43,9 +43,9 @@ with sidebar:
     else:
         empty_messages.success(f"{session_state.timer_pre} Dataset loaded successfully.")
 
-        empty_x_title.markdown("Features Set as X")
+        empty_x_title.markdown("**Features Set as X**")
         empty_x_table.data_editor(session_state.X, hide_index=False, disabled=True, width="stretch")
-        empty_all_title.markdown("The Data with X and Y")
+        empty_all_title.markdown("**The Data with X and Y**")
         empty_all_table.data_editor(session_state.data, hide_index=False, disabled=True, width="stretch")
 
         count: Series = session_state["Y"].value_counts()
