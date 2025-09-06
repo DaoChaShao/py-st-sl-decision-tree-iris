@@ -5,6 +5,10 @@
 
 ### Features
 
+- enhance model training in train.py with decision tree visualization and accuracy metrics ([4ef27a6](https://github.com///commit/4ef27a662e7548ab4f66a0a0e48f0862265db695))
+- add graphviz dependency to requirements.txt for visualization support ([656ea9f](https://github.com///commit/656ea9f6330fdd8c47c94a22b3391e8e7f685a74))
+- update data preparation functionality to include session management for Iris dataset ([6901772](https://github.com///commit/690177255c1c1554456d9e3d4f31a86be2df23bb))
+- add hyperparameter tuning for Decision Tree Classifier using GridSearchCV in helper.py ([3971a72](https://github.com///commit/3971a72e6c1cc18bb104139cbd1dea48e8174257))
 - add model training functionality in train.py with dataset splitting and session management ([c51edbb](https://github.com///commit/c51edbb2a50aaef04ac8c248cf5943fbce80416a))
 - implement data preparation functionality for Iris dataset in preparation.py ([2af8cf6](https://github.com///commit/2af8cf6bacf3153be0d9a7f328b3c81dc049f3f2))
 - enable Model Training page in layout and update sidebar navigation ([87be0a9](https://github.com///commit/87be0a9ec87a513bcedf1168ff908dc1ba62ca41))
@@ -25,4 +29,8 @@
 ### Bug Fixes
 
 - update git-changelog version to 2.6.2 in requirements.txt ([e67ef11](https://github.com///commit/e67ef1125b608e83e75dbe5fc505982fec338055))
+
+### Chore
+
+- update CHANGELOG.md with recent features and bug fixes ([a55d2eb](https://github.com///commit/a55d2eb97276b54274be56e4e15bdbdd4e3ec100))
 
