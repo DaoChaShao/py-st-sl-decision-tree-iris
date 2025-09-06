@@ -5,6 +5,8 @@
 
 ### Features
 
+- add model testing functionality with session state management in test.py ([10139aa](https://github.com///commit/10139aadb740d1b1befae543e336670fc77ae3c1))
+- add model testing page to navigation in layout.py ([f0eca94](https://github.com///commit/f0eca942df2b809c2d28fb3585e67882dcba086e))
 - enhance model training in train.py with decision tree visualization and accuracy metrics ([4ef27a6](https://github.com///commit/4ef27a662e7548ab4f66a0a0e48f0862265db695))
 - add graphviz dependency to requirements.txt for visualization support ([656ea9f](https://github.com///commit/656ea9f6330fdd8c47c94a22b3391e8e7f685a74))
 - update data preparation functionality to include session management for Iris dataset ([6901772](https://github.com///commit/690177255c1c1554456d9e3d4f31a86be2df23bb))
@@ -32,10 +34,13 @@
 
 ### Chore
 
+- update CHANGELOG.md to reflect recent code refactoring and feature additions ([3f7cca0](https://github.com///commit/3f7cca0f2ce7c641c5d214ece114da674d90fd68))
 - update CHANGELOG.md to include recent feature additions and improvements ([4315bd5](https://github.com///commit/4315bd572843059ee2de493c8eb34367aa8dfc44))
 - update CHANGELOG.md with recent features and bug fixes ([a55d2eb](https://github.com///commit/a55d2eb97276b54274be56e4e15bdbdd4e3ec100))
 
 ### Code Refactoring
 
+- rename variable all_sessions to home_sessions and update related session handling in train.py ([9bcb69c](https://github.com///commit/9bcb69c3cefd9efb1356d9116a00a22b5e17f17a))
+- rename variable all_sessions to home_sessions for clarity in preparation.py ([a8f2d5f](https://github.com///commit/a8f2d5f7b5e10a092443b744e2e556a35e71468b))
 - remove unused variables related to tree visualization in train.py ([dde7c1a](https://github.com///commit/dde7c1a38bcde3d0753f2cc913a4a88096340954))
 
