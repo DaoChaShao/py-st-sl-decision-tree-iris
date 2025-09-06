@@ -32,5 +32,10 @@
 
 ### Chore
 
+- update CHANGELOG.md to include recent feature additions and improvements ([4315bd5](https://github.com///commit/4315bd572843059ee2de493c8eb34367aa8dfc44))
 - update CHANGELOG.md with recent features and bug fixes ([a55d2eb](https://github.com///commit/a55d2eb97276b54274be56e4e15bdbdd4e3ec100))
+
+### Code Refactoring
+
+- remove unused variables related to tree visualization in train.py ([dde7c1a](https://github.com///commit/dde7c1a38bcde3d0753f2cc913a4a88096340954))
 
