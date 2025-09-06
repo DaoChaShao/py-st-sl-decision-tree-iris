@@ -20,9 +20,9 @@ empty_x_table: empty = empty()
 empty_all_title: empty = empty()
 empty_all_table: empty = empty()
 
-all_sessions: list[str] = ["iris", "data", "timer_pre", "X", "Y"]
-for all_session in all_sessions:
-    session_state.setdefault(all_session, None)
+home_sessions: list[str] = ["iris", "data", "timer_pre", "X", "Y"]
+for home_session in home_sessions:
+    session_state.setdefault(home_session, None)
 
 with sidebar:
     if session_state.data is None:
@@ -61,6 +61,6 @@ with sidebar:
             metric(f"Category {categories[2]}", values[2])
 
         if button("Clear the Dataset", type="secondary", width="stretch"):
-            for key in all_sessions:
+            for key in home_sessions:
                 session_state[key] = None
             rerun()
