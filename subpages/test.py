@@ -16,7 +16,8 @@ from utils.helper import Timer, scatter_visualiser
 empty_messages: empty = empty()
 default_acc, default_pred, best_acc, best_pred = columns(4, gap="small")
 default, best = columns(2, gap="small")
-empty_charts: empty = empty()
+empty_charts_title: empty = empty()
+empty_charts_chart: empty = empty()
 
 home_sessions: list[str] = ["iris", "data", "X", "Y"]
 for home_session in home_sessions:
@@ -62,7 +63,8 @@ with sidebar:
                 session_state.y_train,
                 dims=2
             )
-            empty_charts.plotly_chart(fig, use_container_width=True)
+            empty_charts_title.markdown("**Training Set Visualisation (PCA 2D)**")
+            empty_charts_chart.plotly_chart(fig, use_container_width=True)
 
             if session_state["y_default_pred"] is None:
                 empty_messages.success("The model is ready for testing.")
