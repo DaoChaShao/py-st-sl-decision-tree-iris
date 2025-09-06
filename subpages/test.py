@@ -6,13 +6,17 @@
 # @File     :   test.py
 # @Desc     :   
 
+from pandas import Series
 from streamlit import (empty, sidebar, subheader, session_state, slider,
-                       columns, metric, button, rerun)
+                       columns, metric, button, rerun, bar_chart,
+                       markdown, plotly_chart)
 
-from utils.helper import Timer
+from utils.helper import Timer, scatter_visualiser
 
 empty_messages: empty = empty()
 default_acc, default_pred, best_acc, best_pred = columns(4, gap="small")
+default, best = columns(2, gap="small")
+empty_charts: empty = empty()
 
 home_sessions: list[str] = ["iris", "data", "X", "Y"]
 for home_session in home_sessions:
@@ -39,6 +43,26 @@ with sidebar:
                 min_value=0, max_value=len(session_state.x_test) - 1, value=0, step=1,
                 help="You can select the index of the sample from the test set for prediction.",
             )
+
+            default_importance = Series(
+                session_state.model.feature_importances_, index=session_state.x_train.columns
+            ).sort_values(ascending=False)
+            best_importance = Series(
+                session_state.best.feature_importances_, index=session_state.x_train.columns
+            ).sort_values(ascending=False)
+            with default:
+                markdown("**Feature Importance of Default Model**")
+                bar_chart(default_importance, use_container_width=True)
+            with best:
+                markdown("**Feature Importance of Best Model**")
+                bar_chart(best_importance, use_container_width=True)
+
+            fig = scatter_visualiser(
+                session_state.x_train,
+                session_state.y_train,
+                dims=2
+            )
+            empty_charts.plotly_chart(fig, use_container_width=True)
 
             if session_state["y_default_pred"] is None:
                 empty_messages.success("The model is ready for testing.")
