@@ -53,10 +53,11 @@ class Timer(object):
         return f"{self._description} has NOT started."
 
 
-def visualisation_scatter(data: DataFrame, categories: DataFrame):
+def scatter_visualiser(data: DataFrame, categories: DataFrame = None, dims: int = 3):
     """ Visualise the data using scatter plots.
     :param data: the DataFrame containing the data
     :param categories: the DataFrame containing the categories for colouring and symbolising the data points
+    :param dims: number of dimensions to reduce to if data has more than 3 dimensions (2 or 3)
     :return: a scatter plot with different colours and symbols for each category
     """
     if categories is not None:
@@ -66,42 +67,55 @@ def visualisation_scatter(data: DataFrame, categories: DataFrame):
         df = data
         category_name = None
 
-    cols = data.columns.tolist()
     dimensions = data.shape[1]
 
     if dimensions == 2:
         fig = scatter(
             df,
-            x=cols[0],
-            y=cols[1],
+            x=data.columns[0],
+            y=data.columns[1],
             color=category_name,
             symbol=category_name,
-            hover_data=[cols[0], cols[1], category_name]
-        )
+            hover_data=[data.columns[0], data.columns[1], category_name]
+        ).update_layout(coloraxis_showscale=False)
     elif dimensions == 3:
         fig = scatter_3d(
             df,
-            x=cols[0],
-            y=cols[1],
-            z=cols[2],
+            x=data.columns[0],
+            y=data.columns[1],
+            z=data.columns[2],
             color=category_name,
             symbol=category_name,
-            hover_data=[cols[0], cols[1], cols[2], category_name]
+            hover_data=[data.columns[0], data.columns[1], data.columns[2], category_name]
         )
     else:
-        pca = PCA(n_components=3)
+        pca = PCA(n_components=dims)
         components = pca.fit_transform(data)
-        data = DataFrame(components, columns=["PAC-X", "PAC-Y", "PAC-Z"])
-        df = data.join(categories) if categories is not None else data
-        fig = scatter_3d(
-            df,
-            x="PAC-X",
-            y="PAC-Y",
-            z="PAC-Z",
-            color=category_name,
-            symbol=category_name,
-            hover_data=["PAC-X", "PAC-Y", "PAC-Z", category_name]
-        )
+        if dims == 2:
+            cols: list[str] = ["PAC-X", "PAC-Y"]
+        else:
+            cols: list[str] = ["PAC-X", "PAC-Y", "PAC-Z"]
+        df = DataFrame(components, columns=cols)
+        df = df.join(categories)
+
+        if dims == 2:
+            fig = scatter(
+                df,
+                x=cols[0],
+                y=cols[1],
+                color=category_name,
+                symbol=category_name,
+                hover_data=cols + ([category_name] if category_name else [])
+            ).update_layout(coloraxis_showscale=False)
+        else:
+            fig = scatter_3d(
+                df,
+                x=cols[0],
+                y=cols[1],
+                z=cols[2],
+                color=category_name, symbol=category_name,
+                hover_data=cols + ([category_name] if category_name else [])
+            )
     return fig
 
 
