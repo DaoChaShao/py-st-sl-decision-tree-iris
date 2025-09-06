@@ -11,8 +11,10 @@ from plotly.express import scatter, scatter_3d
 from sklearn.compose import ColumnTransformer
 from sklearn.decomposition import PCA
 from sklearn.impute import SimpleImputer
+from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.tree import DecisionTreeClassifier
 from time import perf_counter
 
 
@@ -148,3 +150,33 @@ def data_preprocessor(selected_data: DataFrame) -> tuple[DataFrame, StandardScal
 
     # Convert the processed data to a DataFrame
     return DataFrame(processed, columns=cols_names), preprocessor.named_transformers_["number"]["scaler"]
+
+
+def tree_model_seeker(x_train: DataFrame, y_train: DataFrame, randomness: int, cv: int = 10, n_job: int = -1):
+    """ Seek the best hyperparameters for a Decision Tree Classifier using GridSearchCV.
+    :param x_train: the DataFrame containing the training features
+    :param y_train: the DataFrame containing the training labels
+    :param randomness: the random state for reproducibility
+    :param cv: the number of cross-validation folds
+    :param n_job: the number of jobs to run in parallel
+    :return: the best model, the best hyperparameters, and the best score
+    """
+    param_grid: dict[str, list] = {
+        "criterion": ["gini", "entropy"],
+        "max_depth": [1, 2, 3, 4, 5, None],
+        "min_samples_leaf": [1, 2, 3, 4, 5]
+    }
+    grid = GridSearchCV(
+        estimator=DecisionTreeClassifier(random_state=randomness),
+        param_grid=param_grid,
+        scoring="accuracy",
+        cv=cv,
+        n_jobs=n_job,
+        verbose=1,
+    )
+    grid.fit(x_train, y_train)
+
+    best_model = grid.best_estimator_
+    best_params = grid.best_params_
+    best_params_score = grid.best_score_
+    return best_model, best_params, best_params_score
