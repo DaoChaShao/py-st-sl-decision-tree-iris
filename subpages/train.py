@@ -20,15 +20,6 @@ from utils.helper import Timer, tree_model_seeker
 
 empty_messages: empty = empty()
 normal, best = columns(2, gap="large")
-
-empty_tree_title: empty = empty()
-empty_tree_chart: empty = empty()
-empty_tree_text: empty = empty()
-
-empty_best_title: empty = empty()
-empty_best_chart: empty = empty()
-empty_best_text: empty = empty()
-
 empty_train_title: empty = empty()
 empty_train_table: empty = empty()
 empty_test_title: empty = empty()
