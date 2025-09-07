@@ -9,13 +9,26 @@ This application is designed to help users explore **supervised learning** using
 implementing a **decision tree classifier**, users can interactively visualize how the model **learns from the data**
 and **makes predictions**. The app allows users to **select features**, **train the decision tree**, and understand key
 concepts such as **entropy**, **Gini impurity**, **tree depth**, and **leaf nodes**. It is ideal for **beginners** who
-want a **hands-on introduction** to **machine learning** and **decision tree algorithms**.
+want a **hands-on introduction** to **machine learning** and **decision tree algorithms**. Users can interactively
+select training/test sets, configure model parameters, and inspect both default and optimised models.
 
 **DATA DESCRIPTION**
 ---
 The Iris dataset is a classic multi-class classification dataset in machine learning. It contains **150 samples**,
 divided into three classes of iris flowers (**Setosa, Versicolor, Virginica**). Each sample has **four features**: *
 *sepal length**, **sepal width**, **petal length**, and **petal width**.
+
+**FEATURES**
+---
+
+- **Data Loading & Exploration**: Load the Iris dataset, view feature tables, and display class distribution metrics.
+- **Train/Test Split**: Customizable train/test split with user-defined random seed.
+- **Decision Tree Training**: Train a Decision Tree classifier with Gini or Entropy criterion.
+- **Hyperparameter Optimisation**: Automatically search for the best Decision Tree hyperparameters using GridSearchCV.
+- **Model Evaluation**: Evaluate model performance on the test set, with accuracy, classification report, and feature
+  importance.
+- **Interactive Visualization**: Visualize training/test datasets in 2D or 3D PCA plots. Highlight selected samples.
+- **Streamlit UI**: Simple and interactive web interface with sliders, buttons, and dynamic plots.
 
 **HOW TO OBTAIN THE DATA**
 ---
