@@ -13,4 +13,8 @@ empty_message.info("Please check the details at the different pages of core func
 
 title("Supervised Learning with Decision Trees")
 with expander("**INTRODUCTION**", expanded=True):
-    caption("- ")
+    caption("+ Interactive exploration of the Iris dataset.")
+    caption("+ View features, labels, and class distribution metrics.")
+    caption("+ Split dataset into training and test sets with custom seed.")
+    caption("+ Train Decision Tree classifier with Gini or Entropy criterion.")
+    caption("+ Automatically optimize hyperparameters using GridSearchCV.")
