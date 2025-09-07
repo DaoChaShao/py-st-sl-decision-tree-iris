@@ -9,15 +9,19 @@
 from pandas import Series
 from streamlit import (empty, sidebar, subheader, session_state, slider,
                        columns, metric, button, rerun, bar_chart,
-                       markdown, plotly_chart)
+                       markdown, caption, number_input)
 
 from utils.helper import Timer, scatter_visualiser
 
 empty_messages: empty = empty()
 default_acc, default_pred, best_acc, best_pred = columns(4, gap="small")
 default, best = columns(2, gap="small")
-empty_charts_title: empty = empty()
-empty_charts_chart: empty = empty()
+empty_total_title: empty = empty()
+empty_total_chart: empty = empty()
+empty_train_title: empty = empty()
+empty_train_chart: empty = empty()
+empty_test_title: empty = empty()
+empty_test_chart: empty = empty()
 
 home_sessions: list[str] = ["iris", "data", "X", "Y"]
 for home_session in home_sessions:
@@ -39,11 +43,19 @@ with sidebar:
 
             subheader("Model Testing")
 
+            fig_dims: int = number_input(
+                "PCA Dimensions for Visualisation",
+                min_value=2, max_value=3, value=2, step=1,
+                help="The dimensions for PCA visualization (2D or 3D).",
+            )
+            caption(f"The PCA visualization will be in **{fig_dims}D**.")
+
             index: int = slider(
                 "Select Sample Index for Prediction",
                 min_value=0, max_value=len(session_state.x_test) - 1, value=0, step=1,
                 help="You can select the index of the sample from the test set for prediction.",
             )
+            caption("Sample **34** will be surprised if you select it.")
 
             default_importance = Series(
                 session_state.model.feature_importances_, index=session_state.x_train.columns
@@ -59,12 +71,28 @@ with sidebar:
                 bar_chart(best_importance, use_container_width=True)
 
             fig = scatter_visualiser(
+                session_state.X,
+                session_state.Y,
+                dims=fig_dims,
+            )
+            empty_total_title.markdown("**Total Dataset Visualisation (PCA 2D)**")
+            empty_total_chart.plotly_chart(fig, use_container_width=True)
+
+            fig = scatter_visualiser(
                 session_state.x_train,
                 session_state.y_train,
-                dims=2
+                dims=fig_dims,
             )
-            empty_charts_title.markdown("**Training Set Visualisation (PCA 2D)**")
-            empty_charts_chart.plotly_chart(fig, use_container_width=True)
+            empty_train_title.markdown("**Training Set Visualisation (PCA 2D)**")
+            empty_train_chart.plotly_chart(fig, use_container_width=True)
+
+            fig = scatter_visualiser(
+                session_state.x_test,
+                session_state.y_test,
+                dims=fig_dims,
+            )
+            empty_test_title.markdown("**Testing Set Visualisation (PCA 2D)**")
+            empty_test_chart.plotly_chart(fig, use_container_width=True)
 
             if session_state["y_default_pred"] is None:
                 empty_messages.success("The model is ready for testing.")
