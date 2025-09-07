@@ -87,7 +87,7 @@ def scatter_visualiser(data: DataFrame, categories: DataFrame = None, dims: int 
             color=category_name,
             symbol=category_name,
             hover_data=[data.columns[0], data.columns[1], data.columns[2], category_name]
-        )
+        ).update_layout(coloraxis_showscale=False)
     else:
         pca = PCA(n_components=dims)
         components = pca.fit_transform(data)
@@ -98,14 +98,16 @@ def scatter_visualiser(data: DataFrame, categories: DataFrame = None, dims: int 
         df = DataFrame(components, columns=cols)
         df = df.join(categories)
 
+        colour_name: str = str(categories.columns[0])
+
         if dims == 2:
             fig = scatter(
                 df,
                 x=cols[0],
                 y=cols[1],
-                color=category_name,
-                symbol=category_name,
-                hover_data=cols + ([category_name] if category_name else [])
+                color=colour_name,
+                symbol=colour_name,
+                hover_data=cols + ([colour_name] if colour_name else [])
             ).update_layout(coloraxis_showscale=False)
         else:
             fig = scatter_3d(
@@ -113,9 +115,10 @@ def scatter_visualiser(data: DataFrame, categories: DataFrame = None, dims: int 
                 x=cols[0],
                 y=cols[1],
                 z=cols[2],
-                color=category_name, symbol=category_name,
-                hover_data=cols + ([category_name] if category_name else [])
-            )
+                color=colour_name,
+                symbol=colour_name,
+                hover_data=cols + ([colour_name] if colour_name else [])
+            ).update_layout(coloraxis_showscale=False)
     return fig
 
 
