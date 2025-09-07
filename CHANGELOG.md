@@ -5,6 +5,10 @@
 
 ### Features
 
+- enhance README.zh-CN.md with additional feature descriptions and interactive capabilities of the decision tree app ([6ed3073](https://github.com///commit/6ed3073a1bc5330b9cd1c32d446bf8ed81945415))
+- update README.md with detailed feature descriptions and interactive capabilities of the decision tree app ([4af9585](https://github.com///commit/4af95851035d33b331c72ff695085deb303cb18d))
+- enhance introduction section in home.py with interactive exploration details of the Iris dataset ([b49763d](https://github.com///commit/b49763df5e22f4f01f1ce0bd12d8388519227c3c))
+- update application information in about.py with detailed feature descriptions ([97f9940](https://github.com///commit/97f9940765d02489b50a676bb57fea55db2f2eea))
 - enhance PCA visualization in model testing with adjustable dimensions and improved layout ([de061b8](https://github.com///commit/de061b8afd8fe9f3d8fee628bfc07039600d07f9))
 - enhance scatter plot functionality to improve color handling and layout options ([e5af5c6](https://github.com///commit/e5af5c6595f0be4cd68b60f8792af01204532456))
 - update chart handling in test.py to improve visualisation titles and structure ([08e633b](https://github.com///commit/08e633bf354c39a9df21027b3415e5b74707c587))
@@ -39,6 +43,7 @@
 
 ### Chore
 
+- update CHANGELOG.md for version 0.1.0 with recent feature enhancements and improvements ([730d631](https://github.com///commit/730d6316ffca7b858efa5488f32398dbe6b1882b))
 - update CHANGELOG.md to reflect recent feature additions and improvements ([9b3041b](https://github.com///commit/9b3041b4d9f617283761268117c214337fdeed11))
 - update CHANGELOG.md to include recent feature additions and code refactoring ([3bd25ef](https://github.com///commit/3bd25ef06d965b4e98c7018ac6d654a4652072c6))
 - update CHANGELOG.md to reflect recent code refactoring and feature additions ([3f7cca0](https://github.com///commit/3f7cca0f2ce7c641c5d214ece114da674d90fd68))
