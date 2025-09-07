@@ -1,10 +1,12 @@
 <!-- insertion marker -->
 <a name="0.1.0"></a>
 
-## [0.1.0](https://github.com///compare/8bbc4d13eebd9294363d4cc7f1be6b13068866aa...0.1.0) (2025-09-06)
+## [0.1.0](https://github.com///compare/8bbc4d13eebd9294363d4cc7f1be6b13068866aa...0.1.0) (2025-09-07)
 
 ### Features
 
+- enhance PCA visualization in model testing with adjustable dimensions and improved layout ([de061b8](https://github.com///commit/de061b8afd8fe9f3d8fee628bfc07039600d07f9))
+- enhance scatter plot functionality to improve color handling and layout options ([e5af5c6](https://github.com///commit/e5af5c6595f0be4cd68b60f8792af01204532456))
 - update chart handling in test.py to improve visualisation titles and structure ([08e633b](https://github.com///commit/08e633bf354c39a9df21027b3415e5b74707c587))
 - add feature importance visualisation and integrate scatter plot in model testing ([26bd59f](https://github.com///commit/26bd59f2ce87e1ad2d6330396b391ccc89ad40ed))
 - enhance scatter visualisation function to support variable dimensions and improve parameter naming ([dd6819f](https://github.com///commit/dd6819fa5e2f8af3d65920530409a2ff0a28d67d))
@@ -37,6 +39,7 @@
 
 ### Chore
 
+- update CHANGELOG.md to reflect recent feature additions and improvements ([9b3041b](https://github.com///commit/9b3041b4d9f617283761268117c214337fdeed11))
 - update CHANGELOG.md to include recent feature additions and code refactoring ([3bd25ef](https://github.com///commit/3bd25ef06d965b4e98c7018ac6d654a4652072c6))
 - update CHANGELOG.md to reflect recent code refactoring and feature additions ([3f7cca0](https://github.com///commit/3f7cca0f2ce7c641c5d214ece114da674d90fd68))
 - update CHANGELOG.md to include recent feature additions and improvements ([4315bd5](https://github.com///commit/4315bd572843059ee2de493c8eb34367aa8dfc44))
