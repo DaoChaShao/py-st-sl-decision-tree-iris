@@ -10,4 +10,8 @@ from streamlit import title, expander, caption
 
 title("**Application Information**")
 with expander("About this application", expanded=True):
-    caption("- ")
+    caption("+ Evaluate model performance with accuracy and classification reports.")
+    caption("+ Inspect feature importance for both default and optimized models.")
+    caption("+ Visualize datasets in 2D or 3D PCA plots.")
+    caption("+ Highlight individual samples and inspect predictions interactively.")
+    caption("+ Simple and user-friendly Streamlit interface for all features.")
